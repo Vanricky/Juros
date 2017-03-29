@@ -17,9 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ricky
  */
-public class JurosSimples extends HttpServlet {
-    
-    
+public class JurosComposto extends HttpServlet {
+
     // Metodo para arrumar a string para ela não ficar com numeros muito grandes
     public String converter(double d) {
         DecimalFormat df = new DecimalFormat("0.0");
@@ -42,10 +41,7 @@ public class JurosSimples extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
-            //variavel criada aqui para nao ter erro la em baixo ja que ela vai ser usada antes do calculo
-            String valorfinal = "";
-
+            String montanteconvertido = "";
             out.println("<!DOCTYPE html>\n"
                     + "<html>\n"
                     + "<head>\n"
@@ -62,7 +58,7 @@ public class JurosSimples extends HttpServlet {
                     + "<body class='agileits_w3layouts'>\n"
                     + "    <h1 class='agile_head text-center'>Juros Composto e Simples</h1>\n"
                     + "    <div class='w3layouts_main wrap'>\n"
-                    + "	  <h3>2º Trabalho de POO: Juros Simples e Composto. </h3>\n"
+                    + "	  <h3>2º Trabalho de POO: Juros Composto. </h3>\n"
                     + "	    <form action='jsimples.html' method='post' class='agile_form'>\n"
                     + "                  <br/>\n"
                     + "                  <h3>Taxa de Juros: <input type='text'  name='txjuros' required='' /></h3>"
@@ -73,31 +69,23 @@ public class JurosSimples extends HttpServlet {
                     + "                  <input type='submit' value='Calcular' class='agileinfo' />\n"
                     + "                  <br />\n"
                     + "                  <br />\n");
-            
-            // try onde vai todo o codigo do calculo do juros ele inteiro esta aqui
             try {
-                //variaveis doube por ser numeros quebrados
-                double txjuros = 0;
-                double capital = 0;
-                double periodo = 0;
-                double resultado = 0;
-                
-                // recebendo os valores do post e convertendo para double ja que eles retornam String
-                periodo = Double.parseDouble(request.getParameter("periodo"));
-                capital = Double.parseDouble(request.getParameter("capital"));
-                txjuros = Double.parseDouble(request.getParameter("txjuros"));
+                double taxajuros = 0;
+                double capitalinicial = 0;
+                double tempo = 0;
+                double result = 0;
 
-                // M = P . ( 1 + ( i . n ) )  <<<<< Formula utilizada;            
-                resultado = capital * (1 + ((txjuros/100) * periodo));
-                
-                // formatando o numero para ficar mais bonito
-                valorfinal = converter(resultado);
+                tempo = Double.parseDouble(request.getParameter("periodo"));
+                capitalinicial = Double.parseDouble(request.getParameter("capital"));
+                taxajuros = Double.parseDouble(request.getParameter("txjuros"));
+
+                result = capitalinicial * Math.pow((1 + (taxajuros/100)), tempo);
+
+                montanteconvertido = converter(result);
 
             } catch (Exception e) {
-                // Vazio porque não tem retorno de erro no servidor e para no travar o site aqui fica vazio
             }
-            // o final do site completando a a conta e exibindo o resultado ja formatado
-            out.printf("<h3>Resultado = " + valorfinal + " </h3>\n"
+            out.printf("<h3>Resultado = " + montanteconvertido + " </h3>\n"
                     + "			 \n"
                     + "	  </form>\n"
                     + "	</div>\n"
