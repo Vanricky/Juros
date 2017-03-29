@@ -58,6 +58,7 @@ public class Home extends HttpServlet {
                     + "                  <br />\n"
                     + "                  <br />\n"
                     + "                  <h3><b><a href='jsimples.html'> Juros Simples </a></b></h3>\n"
+                    + "                  <h3><b><a href='jcomposto.html'> Juros Composto </a></b></h3>\n"
                     + "			 \n"
                     + "	  </form>\n"
                     + "	</div>\n"
