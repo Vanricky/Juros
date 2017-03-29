@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Ricky
- */
+
 public class JurosComposto extends HttpServlet {
 
     // Metodo para arrumar a string para ela não ficar com numeros muito grandes
@@ -79,7 +76,7 @@ public class JurosComposto extends HttpServlet {
                 capitalinicial = Double.parseDouble(request.getParameter("capital"));
                 taxajuros = Double.parseDouble(request.getParameter("txjuros"));
                 tempo = tempo / 12;
-                result = capitalinicial * Math.pow((1 + (taxajuros/100)), tempo);
+                result = capitalinicial * Math.pow((1 + (taxajuros / 100)), tempo);
 
                 montanteconvertido = converter(result);
 

@@ -3,7 +3,7 @@
     <servlet>
         <servlet-name>JurosSimples</servlet-name>
         <servlet-class>br.com.juros.JurosSimples</servlet-class>
-         <servlet-name>JurosComposto</servlet-name>
+        <servlet-name>JurosComposto</servlet-name>
         <servlet-class>br.com.juros.JurosComposto</servlet-class>
     </servlet>
     <servlet-mapping>

@@ -13,13 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Ricky
- */
+
 public class JurosSimples extends HttpServlet {
-    
-    
+
     // Metodo para arrumar a string para ela não ficar com numeros muito grandes
     public String converter(double d) {
         DecimalFormat df = new DecimalFormat("0.0");
@@ -42,7 +38,7 @@ public class JurosSimples extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             //variavel criada aqui para nao ter erro la em baixo ja que ela vai ser usada antes do calculo
             String valorfinal = "";
 
@@ -73,7 +69,7 @@ public class JurosSimples extends HttpServlet {
                     + "                  <input type='submit' value='Calcular' class='agileinfo' />\n"
                     + "                  <br />\n"
                     + "                  <br />\n");
-            
+
             // try onde vai todo o codigo do calculo do juros ele inteiro esta aqui
             try {
                 //variaveis doube por ser numeros quebrados
@@ -81,15 +77,15 @@ public class JurosSimples extends HttpServlet {
                 double capital = 0;
                 double periodo = 0;
                 double resultado = 0;
-                
+
                 // recebendo os valores do post e convertendo para double ja que eles retornam String
                 periodo = Double.parseDouble(request.getParameter("periodo"));
                 capital = Double.parseDouble(request.getParameter("capital"));
                 txjuros = Double.parseDouble(request.getParameter("txjuros"));
                 periodo = periodo / 12;
                 // M = P . ( 1 + ( i . n ) )  <<<<< Formula utilizada;            
-                resultado = capital * (1 + ((txjuros/100) * periodo));
-                
+                resultado = capital * (1 + ((txjuros / 100) * periodo));
+
                 // formatando o numero para ficar mais bonito
                 valorfinal = converter(resultado);
 
