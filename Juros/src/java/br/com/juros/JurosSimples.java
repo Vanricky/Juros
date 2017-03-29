@@ -86,7 +86,7 @@ public class JurosSimples extends HttpServlet {
                 periodo = Double.parseDouble(request.getParameter("periodo"));
                 capital = Double.parseDouble(request.getParameter("capital"));
                 txjuros = Double.parseDouble(request.getParameter("txjuros"));
-
+                periodo = periodo / 12;
                 // M = P . ( 1 + ( i . n ) )  <<<<< Formula utilizada;            
                 resultado = capital * (1 + ((txjuros/100) * periodo));
                 

@@ -78,7 +78,7 @@ public class JurosComposto extends HttpServlet {
                 tempo = Double.parseDouble(request.getParameter("periodo"));
                 capitalinicial = Double.parseDouble(request.getParameter("capital"));
                 taxajuros = Double.parseDouble(request.getParameter("txjuros"));
-
+                tempo = tempo / 12;
                 result = capitalinicial * Math.pow((1 + (taxajuros/100)), tempo);
 
                 montanteconvertido = converter(result);
