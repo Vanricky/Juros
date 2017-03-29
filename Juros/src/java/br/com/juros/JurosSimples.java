@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
+package br.com.juros;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -62,7 +62,7 @@ public class JurosSimples extends HttpServlet {
                     + "<body class='agileits_w3layouts'>\n"
                     + "    <h1 class='agile_head text-center'>Juros Composto e Simples</h1>\n"
                     + "    <div class='w3layouts_main wrap'>\n"
-                    + "	  <h3>2º Trabalho de POO: Juros Simples e Composto. </h3>\n"
+                    + "	  <h3>2º Trabalho de POO: Juros Simples. </h3>\n"
                     + "	    <form action='jsimples.html' method='post' class='agile_form'>\n"
                     + "                  <br/>\n"
                     + "                  <h3>Taxa de Juros: <input type='text'  name='txjuros' required='' /></h3>"
